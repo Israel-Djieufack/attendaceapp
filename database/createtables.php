@@ -20,7 +20,21 @@ try {
     $s->execute();
     echo "<br>Table student_details créée";
 } catch (PDOException $e) {
-    echo "<br>Erreur: Table student_details non créée - " . $e->getMessage();
+    echo "<br>Error: Table student_details not created - " . $e->getMessage();
+}
+
+$c = "CREATE TABLE student_details (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    roll_no VARCHAR(20) UNIQUE,
+    name VARCHAR(50)
+)";
+
+try {
+    $s = $dbo->conn->prepare($c);
+    $s->execute();
+    echo "<br>Table student_details créée";
+} catch (PDOException $e) {
+    echo "<br>Error: Table student_details not created - " . $e->getMessage();
 }
 
 ?>
